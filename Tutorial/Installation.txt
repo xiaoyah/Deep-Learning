@@ -1,0 +1,35 @@
+
+Environment setup for TensorFlow
+
+
+
+Step 1: JupyterHub on the Palmetto Cluster
+
+1) Open: https://www.palmetto.clemson.edu/palmetto/jupyterhub_index.html
+
+2) Apply one K40m GPU
+
+3) Open a new Terminal
+
+
+Step 2: load module for GPU before each experiment
+
+1) Enter the following commands in Terminal:
+
+$ module purge
+$ module load anaconda3/5.1.0 cuda-toolkit/10.1.168 cuDNN/10.0v7.4.2
+
+2) Enter "nvidia-smi" to check GPU
+
+
+Step 3: Install packages
+
+Enter the following commands in Terminal:
+
+$ conda create --name tensorflow python=3.6
+$ source activate tensorflow
+$ pip install jupyter
+$ python -m ipykernel install --user --name tensorflow --display-name "tensorflow"
+$ pip install tensorflow==1.15
+$ pip install tensorflow-gpu==1.15
+$ pip install -U scikit-learn scipy matplotlib numpy
